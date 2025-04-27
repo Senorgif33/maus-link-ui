@@ -5,6 +5,8 @@ import Settings from "./pages/Settings";
 import Console from "./pages/Console";
 import Buttplug from "./pages/Buttplug";
 import FileManager from "./pages/FileManager";
+import Session from "./pages/Session";
+import LLMChat from "./pages/LLMChat";
 import {DeviceContext} from "./DeviceProvider";
 
 const DeviceRoutes = ({}) => {
@@ -29,6 +31,12 @@ const DeviceRoutes = ({}) => {
           </Route>
           <Route path={'/files/*'}>
             <FileManager />
+          </Route>
+          <Route path={'/session'}>
+            <Session />
+          </Route>
+          <Route path={'/chat'}>
+            <LLMChat />
           </Route>
         </Switch>
       )
