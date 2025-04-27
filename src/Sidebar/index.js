@@ -6,10 +6,12 @@ import {DeviceContext} from "../DeviceProvider";
 import {NavLink} from "react-router-dom";
 import {ButtplugContext, ButtplugState} from "../DeviceProvider/ButtplugProvider";
 import './index.scss'
+import {SessionContext} from "../SessionController";
 
 const Sidebar = () => {
   const context = useContext(DeviceContext);
   const buttplug = useContext(ButtplugContext);
+  const sessionContext = useContext(SessionContext);
   const connecting = context.state === 'connecting';
   const connected = context.state === 'connected';
   const disconnected = context.state === 'disconnected';
@@ -49,17 +51,26 @@ const Sidebar = () => {
       })}
 
       <li><NavLink to={"/"} exact activeClassName={'primary-dark white-text'}><Icon className={'prefix'}>dashboard</Icon> Dashboard</NavLink></li>
+      
+      {/* Session Navigation Links */}
+      <li>
+        <NavLink to={"/session"} activeClassName={'primary-dark white-text'}>
+          <Icon className={'prefix'}>timer</Icon> 
+          AI Session
+          {sessionContext.active && 
+            <span className="new badge pulse" style={{float: 'none', marginLeft: '10px'}}>Active</span>}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to={"/chat"} activeClassName={'primary-dark white-text'}>
+          <Icon className={'prefix'}>chat</Icon> 
+          LLM Chat
+        </NavLink>
+      </li>
+      
       <li><NavLink to={"/settings"} activeClassName={'primary-dark white-text'}><Icon className={'prefix'}>settings</Icon> Settings</NavLink></li>
       <li><NavLink to={"/console"} activeClassName={'primary-dark white-text'}><Icon className={'prefix'}>code</Icon> Serial Console</NavLink></li>
       <li><NavLink to={"/files"} activeClassName={'primary-dark white-text'}><Icon className={'prefix'}>folder_open</Icon> File Manager</NavLink></li>
-
-      {/*<SideNavItem href="#!second">*/}
-        {/*Second Link*/}
-      {/*</SideNavItem>*/}
-
-      {/*<SideNavItem subheader>*/}
-        {/*Subheader*/}
-      {/*</SideNavItem>*/}
 
       { !disconnected && <React.Fragment>
         <SideNavItem divider />

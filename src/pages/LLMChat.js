@@ -9,8 +9,8 @@ const LLMChat = () => {
   
   // LLM Settings
   const [settings, setSettings] = useState({
-    endpoint: 'http://localhost:8000/api/chat', // Default local endpoint
-    model: 'llama3', // Default model
+    endpoint: 'http://localhost:5001/api/', // Default local endpoint
+    model: 'Mistral', // Default model
     temperature: 0.7,
     maxTokens: 1024,
     characterName: 'Mistress',

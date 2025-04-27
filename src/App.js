@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import ButtplugProvider from "./DeviceProvider/ButtplugProvider";
 import DeviceRoutes from "./DeviceRoutes";
 import Diagnostic from "./Diagnostic";
+import SessionController from "./SessionController";
 
 class App extends Component {
   constructor(props) {
@@ -24,15 +25,17 @@ class App extends Component {
             <Route path="/">
               <DeviceProvider>
                 <ButtplugProvider>
-                  <Header />
+                  <SessionController>
+                    <Header />
 
-                  <div className={'content'} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                    <Sidebar />
+                    <div className={'content'} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                      <Sidebar />
 
-                    <main style={{ display: 'flex', flexDirection: 'column', flexGrow: 1}}>
-                      <DeviceRoutes />
-                    </main>
-                  </div>
+                      <main style={{ display: 'flex', flexDirection: 'column', flexGrow: 1}}>
+                        <DeviceRoutes />
+                      </main>
+                    </div>
+                  </SessionController>
                 </ButtplugProvider>
               </DeviceProvider>
             </Route>
