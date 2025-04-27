@@ -1,3 +1,5 @@
+Modification of the Maus-link-ui. Fair warning I cant code and I have barely any idea of how github works. Im using AI to do the coding for me. I made this fork primarily so I can roll back changes if needed.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
